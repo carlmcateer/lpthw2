@@ -1,0 +1,48 @@
+Maths:
++ Addition
+- Subtract
+* Multiply
+/ Divide
+% Return the reminder to two values (modulo)
+() Parenthesis, used to define order of operations
+< Less then, check if the value on left is smaller than right, return bool
+> Greater then, check if the value on left is larger than right, return bool
+=< Less then or equal, check if the value on left is smaller than right or the same, return bool
+=> Greater then or equal, check if the value on left is larger than right or the same, return bool
+== Equal to, check if the values on the left is the same as the one on the right, return bool
+. decimal point, used in floating point numbers
+True The bool value true
+False The bool value false
+
+Functions:
+def Used to make a function, it is followed my a name and inputs inside parenthesis
+() Used to inclose arguments wen defining function.
+, comma, used to separate different arguments
+: Colon, used to mark the end of the function definition and the beginning of the body of the function.
+return specity what is returned after the function has run
+
+Libraries:
+import
+from
+math
+argv
+sys
+
+Printing:
+print
+""
+''
+%s
+%d
+%r
+%
+()
+,
+\\
+\n
+"""
+'''
+
+General
+=
+#
