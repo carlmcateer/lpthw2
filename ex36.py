@@ -1,3 +1,5 @@
+from sys import exit
+
 def start():
     # it was a dark and stormy night.
 
@@ -12,3 +14,5 @@ def east():
 
 def north():
     # travel north into the cave. You need the magic wand.
+
+start()
