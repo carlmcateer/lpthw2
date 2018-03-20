@@ -88,7 +88,6 @@ def west():
     --- Who am I?
     ---'
     -- What do ya make of that now?
-    --
     -- You can have as many goes as you like as long as you dont use the 'f' word.
     """
     def westRiddle():
@@ -109,6 +108,7 @@ def west():
             *Stone of Rocks added to inventory*
 
             """
+            --
 
             inventory.append("Stone")
 
@@ -215,5 +215,7 @@ def checkIfWorthy():
     else:
         dead("Dont be going to try that now sonney, you dead now.")
     return
+
+
 
 start()
