@@ -9,13 +9,13 @@ def start():
     # it was a dark and stormy night.
     print """
     It was dark and stormy night.
-    A cave of wonder lays before you.
-    A the wind wispers into your ear.
-    -- Welcome travler, to the cave of bulshit.
-    -- To reach the tresure to the north you must restore the Wand of Magic to its former glory.
+    A cave of wonder lies before you.
+    The wind whispers into your ear.
+    -- Welcome traveller, to the cave of bullshit.
+    -- To reach the treasure to the north you must restore the Wand of Magic to its former glory.
     -- Look to the west for the Stone of Rocks.
     -- And to the east for the Stick of Wood.
-    -- Go now, and fulfill the proficy.
+    -- Go now, and fulfill the prophecy.
     -- ...
     -- And take care.
     -- Mwahahaha.
@@ -73,7 +73,7 @@ def returnToStart():
 
 def west():
     print """
-    You press press on wesht, feeling that this is the besht thing to do.
+    You press on wesht, feeling that this is the besht thing to do.
     Some pure mad fella jumps out before you, spewing cliché's.
     His rawwness makes your toes curl.
 
@@ -128,7 +128,7 @@ def west():
 def east():
     # travel east into the cave. Find the magic stick.
     print """
-    ~ Woe on to you, grand fucker, who wants the seeks the Stick of Wood.~
+    ~ Woe on to you, grand fucker, who seeks the Stick of Wood.~
 
     The voice seemed to come from inside your own brain.
 
@@ -159,12 +159,12 @@ def east():
 
         elif userInput < 10:
             print "You stingy fucker!"
-            dead("The voice in you head downded you in quids.")
+            dead("The voice in your head drowns you in quids.")
 
         else:
             print "You prince!"
             print """
-            You are win!
+            You win!
 
             ...
 
@@ -185,23 +185,35 @@ def east():
 
 def north():
     print """
-    Do you want to brinf forth the wand of wands?
+    Do you want to bring forth the wand of wands?
     ..
     ..
     Yes or No?
     """
-    userInput = raw_input("> ")
-    if "Yes" in userInput:
-        checkIfWorthy()
-    elif "No" in userInput:
-        returnToStart()
-    else:
-        print "Thats not an answer...."
+    def doorTalker():
+        userInput = raw_input("> ")
+        if "Yes" in userInput:
+            checkIfWorthy()
+        elif "No" in userInput:
+            returnToStart()
+        else:
+            print "That's not an answer...."
+            doorTalker()
+
+    doorTalker()
 
     return
-    # travel north into the cave. You need the magic wand.
-# def checkIfWorthy():
-#     # Check if you have both parts of the wand in your inv.
-#     return
+    #travel north into the cave. You need the magic wand.
+
+def checkIfWorthy():
+    # Check if you have both parts of the wand in your inv.
+    if "Stone" and "Stick" in inventory:
+        print "You bring forth the Wand of Wands and blow the shit out of the door."
+        print "You take all the loot you can carry"
+        print "Congrats!"
+
+    else:
+        dead("Dont be going to try that now sonney, you dead now.")
+    return
 
 start()
