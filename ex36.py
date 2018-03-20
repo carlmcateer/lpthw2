@@ -216,6 +216,6 @@ def checkIfWorthy():
         dead("Dont be going to try that now sonney, you dead now.")
     return
 
-
+# This is a test on windows
 
 start()
