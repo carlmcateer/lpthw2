@@ -34,7 +34,7 @@ counties = {
     'Wicklow': 'WW'
 }
 
-cities = {
+towns = {
     'AM': 'Ballymena',
     'AH': 'Armagh',
     'CW': 'Carlow',
@@ -57,9 +57,9 @@ cities = {
     'LH': 'Dundalk',
     'MO': 'Castlebar',
     'MH': 'Navan',
+    'RN': 'Roscommon',
     'MN': 'Monaghan',
     'OY': 'Tullamore',
-    'RN': 'Roscommon',
     'SO': 'Sligo',
     'TY': 'Nenagh',
     'TE': 'Omagh',
@@ -68,6 +68,7 @@ cities = {
     'WX': 'Wexford',
     'WW': 'Wicklow'
 }
+
 
 print '-' * 20
 
@@ -79,12 +80,12 @@ for county, abbrev in counties.items():
 
 print '-' * 20
 
-for abbrev, city in cities.items():
+for abbrev, city in towns.items():
     print "%s has the town %s" % (abbrev, city)
 
 print '-' * 20
 
 for county, abbrev in counties.items():
     print "%s is abbrevated %s and has the town %s" % (
-    county, abbrev, cities[abbrev]
+    county, abbrev, towns[abbrev]
     )
