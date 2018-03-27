@@ -39,7 +39,25 @@ class Death(Scene):
 class CentralCorridor(Scene):
 
     def enter(self):
-        pass
+        # Opening Dialog
+        input = raw_input("> ")
+
+        if input =="option1":
+            #dialog 1 leading to death
+            return 'death'
+
+        elif input == "option2":
+            #dialog 2 leading to death
+            return 'death'
+
+        elif input == "option3":
+            #dialog 3 leading to the right answer
+            return 'laser_wepon_armory'
+
+        else:
+            #dialog 4 leading to returning to the coridor, this is if they
+            #get none of the right input's
+            return 'central_coridor'
 
 class LaserWeponArmory(Scene):
 
