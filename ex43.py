@@ -5,10 +5,8 @@ from random import randint
 class Scene(object):
 
     def enter(self):
-        print "This scene is not yet configured. Subclass it and implement enter()"
-
+        print "This scene is not yet configured. Subclass it and implement enter()."
         exit(1)
-
 
 class Engine(object):
 
@@ -22,6 +20,7 @@ class Engine(object):
             print "\n----------"
             next_scene_name = current_scene.enter()
             current_scene = self.scene_map.next_scene(next_scene_name)
+
 
 class Death(Scene):
 
@@ -177,7 +176,7 @@ class EscapePod(Scene):
             print "You jump into pod %s and hit the eject button." % guess
             print "The pod easily slides out into space heading to"
             print "the planet below. As it fliesto the planet, you look"
-            print "back and see your ship implode then explode like a"\
+            print "back and see your ship implode then explode like a"
             print "bright star, taking out the Gothon ship at the same"
             print "time. You won!"
 
