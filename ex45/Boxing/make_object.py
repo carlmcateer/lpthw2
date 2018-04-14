@@ -39,16 +39,16 @@ def choose_name():
 def choose_enemy():
 
     bad_guy_names = [
-    "Mohammed Ali",
-    "Floyd Mayweather Jr.",
-    "Sugar Ray Robinson",
-    "Mike Tyson",
-    "Joe Louis",
-    "Manny Pacquiao",
-    "Joe Frazier",
-    "Rocky Marciano",
-    "Vasyl Lomachenko"
-    ]
+                    "Mohammed Ali",
+                    "Floyd Mayweather Jr.",
+                    "Sugar Ray Robinson",
+                    "Mike Tyson",
+                    "Joe Louis",
+                    "Manny Pacquiao",
+                    "Joe Frazier",
+                    "Rocky Marciano",
+                    "Vasyl Lomachenko"
+                    ]
 
     chosen_name = bad_guy_names[random.randint(0,len(bad_guy_names)-1)]
     print "Well if it aint none other than %s" % chosen_name
