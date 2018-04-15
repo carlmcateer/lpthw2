@@ -24,14 +24,15 @@ wait_time = 1.5
 
 # Im not sure if it makes sence for this to be a class as ther is no INIT
 class Moves(object):
-    # each move checks the users stamina before the move is attempted.
+
+    # Each move checks the users stamina before the move is attempted.
     # If the usere has enough stamina then the miss chance will determin if it is sucscsfull
     def jab(self, user, target):
         miss_chance = 1
         stamina_cost = 2
-        damage = random.randint(1,3)
+        damage = random.randint(1, 3)
         if user.stamina >= stamina_cost:
-            if miss_chance < random.randint(1,10):
+            if miss_chance < random.randint(1, 10):
                 user.stamina = user.stamina - stamina_cost
                 target.life = target.life - damage
                 time.sleep(wait_time)
@@ -50,14 +51,13 @@ class Moves(object):
         else:
             print "Not enough stamina!"
 
-
     def cross(self, user, target):
         miss_chance = 5
         stamina_cost = 4
-        damage = random.randint(3,5)
+        damage = random.randint(3, 5)
         if user.stamina >= stamina_cost:
 
-            if miss_chance < random.randint(1,10):
+            if miss_chance < random.randint(1, 10):
                 user.stamina = user.stamina - stamina_cost
                 target.life = target.life - damage
                 time.sleep(wait_time)
@@ -79,9 +79,9 @@ class Moves(object):
     def haymaker(self, user, target):
         miss_chance = 9
         stamina_cost = 10
-        damage = random.randint(7,10)
+        damage = random.randint(7, 10)
         if user.stamina >= stamina_cost:
-            if miss_chance < random.randint(1,10):
+            if miss_chance < random.randint(1, 10):
                 user.stamina = user.stamina - stamina_cost
                 target.life = target.life - damage
                 time.sleep(wait_time)
@@ -103,7 +103,8 @@ class Moves(object):
 # It costs stamina to atempt a move, and if it is sucsesfull then it will
 # remove life points from the opponant
 class Boxer(object):
-    def __init__(self, name = '', life = 0, stamina = 0):
+
+    def __init__(self, name='', life=0, stamina=0):
         self.name = name
         self.life = life
         self.stamina = stamina
@@ -127,22 +128,20 @@ def choose_name():
 # Picks an enemy name randomly from a list.
 def choose_enemy():
 
-    bad_guy_names = [
-    "Mohammed Ali",
-    "Floyd Mayweather Jr.",
-    "Sugar Ray Robinson",
-    "Mike Tyson",
-    "Joe Louis",
-    "Manny Pacquiao",
-    "Joe Frazier",
-    "Rocky Marciano",
-    "Vasyl Lomachenko"
-    ]
+    bad_guy_names = ["Mohammed Ali",
+                     "Floyd Mayweather Jr.",
+                     "Sugar Ray Robinson",
+                     "Mike Tyson",
+                     "Joe Louis",
+                     "Manny Pacquiao",
+                     "Joe Frazier",
+                     "Rocky Marciano",
+                     "Vasyl Lomachenko"]
 
     chosen_name = bad_guy_names[random.randint(0, len(bad_guy_names)-1)]
     print "Well if it aint none other than %s" % chosen_name
     time.sleep(wait_time)
-    #dificulty options
+    # dificulty options
 
     return str(chosen_name)
 
@@ -156,8 +155,8 @@ enemy_current_stamina = 0
 enemy_max_stamina = 10
 enemy_max_life = 10
 
-player = Boxer(name = player_name, life = player_max_life, stamina = player_current_stamina)
-enemy = Boxer(name = enemy_name, life = enemy_max_life, stamina = enemy_current_stamina)
+player = Boxer(name=player_name, life=player_max_life, stamina=player_current_stamina)
+enemy = Boxer(name=enemy_name, life=enemy_max_life, stamina=enemy_current_stamina)
 
 def game_loop():
     # The rounds of the game are controled by the value "turn", if it is 1 then
@@ -197,14 +196,14 @@ def game_loop():
             time.sleep(wait_time)
             while enemy.stamina > 0 and player.life > 0:
                 # The computers moves are chosen at random
-                enemy_move_choice = random.randint(1,3)
+                enemy_move_choice = random.randint(1, 3)
 
                 if enemy_move_choice == 1:
-                    Moves().jab(enemy,player)
+                    Moves().jab(enemy, player)
                 elif enemy_move_choice == 2:
-                    Moves().cross(enemy,player)
+                    Moves().cross(enemy, player)
                 elif enemy_move_choice == 3:
-                    Moves().haymaker(enemy,player)
+                    Moves().haymaker(enemy, player)
 
                 turn = 1
 
