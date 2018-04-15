@@ -25,15 +25,18 @@ wait_time = 1.5
 # Im not sure if it makes sence for this to be a class as ther is no INIT
 class Moves(object):
 
+    def __init__(self, user, target):
+        pass
     # Each move checks the users stamina before the move is attempted.
     # If the usere has enough stamina then the miss chance will determin if it is sucscsfull
-    def jab(self, user, target):
+    # Look up static methods
+    def jab(self):
         miss_chance = 1
         stamina_cost = 2
         damage = random.randint(1, 3)
         if user.stamina >= stamina_cost:
             if miss_chance < random.randint(1, 10):
-                user.stamina = user.stamina - stamina_cost
+                Moves.user.stamina = user.stamina - stamina_cost
                 target.life = target.life - damage
                 time.sleep(wait_time)
                 print "%s lands a beutiful jab!" % user.name
@@ -213,6 +216,5 @@ def game_loop():
         print "%s just kicked %s's ass! !" % (player_name, enemy_name)
     else:
         print "I dont know how to get here."
-
 
 game_loop()
