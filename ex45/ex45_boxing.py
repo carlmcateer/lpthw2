@@ -1,7 +1,3 @@
-
-import random
-import time
-
 # Design a game where you are in a boxing match with an AI
 # It is a turn baed game where you have a fixed amount of stamina
 # When stamina drops to zero it is the other players turn
