@@ -28,6 +28,7 @@ class Moves(object):
     # Each move checks the users stamina before the move is attempted.
     # If the usere has enough stamina then the miss chance will determin if it is sucscsfull
     # Look up static method
+    # Use a list of dictionarys to hold the values for different moves.
     def jab(self, user, target):
         miss_chance = 1
         stamina_cost = 2
