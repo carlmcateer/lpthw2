@@ -150,6 +150,8 @@ def game_loop():
                 print "Type jab, cross or haymaker."
                 user_input = raw_input("> ")
 
+                # TODO Make this one if/else, check it user
+
                 if "jab" in user_input:
                     Moves().punch(user_input, player, enemy)
                 elif "cross" in user_input:
@@ -171,17 +173,17 @@ def game_loop():
             time.sleep(wait_time)
             while enemy.stamina > 0 and player.life > 0:
                 # The computers moves are chosen at random
-                enemy_move_choice = random.randint(1, 3)
 
-                if enemy_move_choice == 1:
-                    foo = 'jab'
-                    Moves().punch(foo, enemy, player)
-                elif enemy_move_choice == 2:
-                    foo = 'cross'
-                    Moves().punch(foo, enemy, player)
-                elif enemy_move_choice == 3:
-                    foo = 'haymaker'
-                    Moves().punch(foo, enemy, player)
+                # TODO Make this one if/else, check it user
+
+                move_list = ['jab', 'cross', 'haymaker']
+
+                enemy_move_choice = move_list[random.randint(0, len(move_list)-1)]
+
+                if isinstance(enemy_move_choice,str):
+                    Moves().punch(enemy_move_choice, enemy, player)
+                else:
+                    print "I broke now..."
 
                 turn = 1
 
