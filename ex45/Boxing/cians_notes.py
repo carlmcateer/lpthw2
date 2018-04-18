@@ -31,9 +31,12 @@ class Moves(object):
     # array is miss chance, stamina cost and damage
 
     attack = {
-    'jab': [1, 2, random.randint(1, 3)],
+    'jab': [1, 1, random.randint(1, 1)],
+    'hook': [4, 3, random.randint(2, 4)],
     'cross': [5, 4, random.randint(3, 5)],
-    'haymaker': [9, 10, random.randint(7, 10)]
+    'uppercut': [6, 5, random.randint(4, 6)],
+    'overhand': [8, 10, random.randint(6, 8)],
+    'haymaker': [9.5, 10, random.randint(7, 10)],
     }
 
     punch_line = [
@@ -52,6 +55,8 @@ class Moves(object):
         miss_chance = Moves.attack.get(move)[0]
         stamina_cost = Moves.attack.get(move)[1]
         damage = Moves.attack.get(move)[2]
+        self.move = move
+
 
         if user.stamina >= stamina_cost:
             if miss_chance < random.randint(1, 10):
@@ -59,6 +64,7 @@ class Moves(object):
                 target.life = target.life - damage
                 time.sleep(wait_time)
                 print Moves.punch_line[random.randint(0,2)] % user.name
+                print "%s" % move
                 print "%s stamina: " % user.name + str(user.stamina)
                 print "%s life: " % target.name + str(target.life)
                 time.sleep(wait_time)
@@ -66,6 +72,7 @@ class Moves(object):
                 user.stamina = user.stamina - stamina_cost
                 time.sleep(wait_time)
                 print Moves.miss_line[random.randint(0,2)] % user.name
+                print "%s" % move
                 print "%s stamina: " % user.name + str(user.stamina)
                 print "%s life: " % target.name + str(target.life)
                 time.sleep(wait_time)
@@ -136,11 +143,11 @@ enemy = Boxer(name=enemy_name, life=enemy_max_life, stamina=enemy_current_stamin
 def game_loop():
     # The rounds of the game are controled by the value "turn", if it is 1 then
     # it is the players turn, if it is 0 then it is the computers turn.
-    turn = 1
+    turn = True
     # the game loop will continue as long as both players have life left.
     while player.life > 0 and enemy.life > 0:
 
-        if turn == 1:
+        if turn:
 
             player.stamina = player_max_stamina
             time.sleep(wait_time)
@@ -149,23 +156,18 @@ def game_loop():
             while player.stamina > 0 and enemy.life > 0:
                 print "Type jab, cross or haymaker."
                 user_input = raw_input("> ")
+                move_list = Moves.attack.keys()
 
-                # TODO Make this one if/else, check it user
-
-                if "jab" in user_input:
-                    Moves().punch(user_input, player, enemy)
-                elif "cross" in user_input:
-                    Moves().punch(user_input, player, enemy)
-                elif "haymaker" in user_input:
+                if user_input in move_list:
                     Moves().punch(user_input, player, enemy)
                 else:
                     print "Try again..."
                     time.sleep(wait_time)
                     game_loop()
 
-            turn = 0
+            turn = False
 
-        elif turn == 0:
+        elif turn == False:
 
             enemy.stamina = enemy_max_stamina
             time.sleep(wait_time)
@@ -173,11 +175,7 @@ def game_loop():
             time.sleep(wait_time)
             while enemy.stamina > 0 and player.life > 0:
                 # The computers moves are chosen at random
-
-                # TODO Make this one if/else, check it user
-
-                move_list = ['jab', 'cross', 'haymaker']
-
+                move_list = Moves.attack.keys()
                 enemy_move_choice = move_list[random.randint(0, len(move_list)-1)]
 
                 if isinstance(enemy_move_choice,str):
@@ -185,7 +183,7 @@ def game_loop():
                 else:
                     print "I broke now..."
 
-                turn = 1
+                turn = True
 
     if player.life <= 0:
         print "You suck %s! Your a looser!" % player_name
