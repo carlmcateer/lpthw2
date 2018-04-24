@@ -31,7 +31,7 @@ class Moves(object):
     # array is miss chance, stamina cost and damage
 
     attack = {
-    'jab': [1, 1, random.randint(1, 1)],
+    'jab': [1, 1, 1],
     'hook': [4, 3, random.randint(2, 4)],
     'cross': [5, 4, random.randint(3, 5)],
     'uppercut': [6, 5, random.randint(4, 6)],
